@@ -35,8 +35,10 @@ export async function getTimetable(url: string) {
         .querySelector("div > table > tr > td > table")
         ?.querySelectorAll("tr")
     if (!parsedResponse) {
-        return []
+        return { timetable: [], className: "" }
     }
+    let className =
+        parse(response.data).querySelector(".tytulnapis")?.text ?? ""
 
     let timetable: TimetableRow[] = []
     parsedResponse.map((row) => {
@@ -48,5 +50,5 @@ export async function getTimetable(url: string) {
         })
         timetable.push({ rowItems: rowData })
     })
-    return timetable
+    return { timetable, className }
 }
