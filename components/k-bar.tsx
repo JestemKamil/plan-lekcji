@@ -1,7 +1,7 @@
 import { FC, ReactNode, useEffect, useState } from "react"
 import { KBarProvider } from "kbar"
 import { KBarModal } from "./ui/k-bar-modal"
-import { fetchTimetablesList } from "@/lib/cez_scraper/timetable-api"
+import { fetchTimetablesList } from "@/lib/server-actions"
 import { useRouter } from "next/navigation"
 
 type Action = {
