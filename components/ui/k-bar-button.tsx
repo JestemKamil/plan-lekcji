@@ -5,21 +5,19 @@ import { useKBar } from "kbar"
 export function KBarButton({ ...rest }) {
     const { query } = useKBar()
     return (
-        <button {...rest} onClick={() => query.toggle()} aria-label="Szukaj">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-6 w-6 text-gray-900 dark:text-gray-100"
+        <div className="w-auto flex-none">
+            <button
+                className="inline-flex items-center whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground px-4 py-2 relative h-8 justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 w-40 lg:w-64"
+                onClick={() => query.toggle()}
             >
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-            </svg>
-        </button>
+                <span className="hidden lg:inline-flex">
+                    Szukaj planu lekcji...
+                </span>
+                <span className="inline-flex lg:hidden">Szukaj...</span>
+                <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                    <span className="text-xs">CTRL K</span>
+                </kbd>
+            </button>
+        </div>
     )
 }
