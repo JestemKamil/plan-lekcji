@@ -24,8 +24,12 @@ export default async function Home() {
                         {timetables.map(
                             (timetable, index) =>
                                 timetable.href.startsWith("plany/o") && (
-                                    <Button variant="link">
-                                        <Link href={timetable.href} key={index}>
+                                    <Button
+                                        className="text-pretty"
+                                        variant="link"
+                                        key={index}
+                                    >
+                                        <Link href={timetable.href}>
                                             {timetable.name}
                                         </Link>
                                     </Button>
@@ -45,8 +49,9 @@ export default async function Home() {
                                     <Button
                                         className="text-pretty"
                                         variant="link"
+                                        key={index}
                                     >
-                                        <Link href={timetable.href} key={index}>
+                                        <Link href={timetable.href}>
                                             {timetable.name}
                                         </Link>
                                     </Button>
