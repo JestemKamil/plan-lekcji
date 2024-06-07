@@ -14,9 +14,7 @@ export async function getTimetablesList() {
     const response = await axios.get(
         "https://ckpstw.webd.pl/n1/plan/u/lista.html"
     )
-    const parsedResponse =
-        parse(response.data).querySelector("ul")?.querySelectorAll("li > a") ??
-        []
+    const parsedResponse = parse(response.data).querySelectorAll("ul >li > a")
     let timetables: TimetableListItem[] = []
     parsedResponse.map((item) => {
         timetables.push({
